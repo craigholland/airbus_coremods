@@ -1,4 +1,4 @@
-## Python Morepath Skeleton for Google App Engine
+## Python Pyramid Skeleton for Google App Engine
 
 A skeleton for building Python applications on Google App Engine with the
 [Pyramid framework](http://www.pylonsproject.org/).
