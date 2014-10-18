@@ -4,8 +4,6 @@
 from pyramid.config import Configurator
 from pyramid.response import Response
 
-#from webob.exc import HTTPNotFound, HTTPInternalServerError
-
 
 def hello_world(request):
     """Return a friendly greeting."""
