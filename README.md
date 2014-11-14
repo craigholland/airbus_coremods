@@ -72,3 +72,7 @@ See [LICENSE](LICENSE)
 
 ## Author
 [Michael R. Bernstein](http://www.michaelbernstein.com)
+
+
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/webmaven/appengine-python-pyramid-skeleton/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+
