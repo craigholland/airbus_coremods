@@ -4,7 +4,7 @@
 from pyramid.config import Configurator
 from pyramid.response import Response
 from dbquery import models
-from dbquery import routes as db_routes
+from dbquery.routes import routes as db_routes
 
 def root_page(request):
     """Return a friendly greeting."""

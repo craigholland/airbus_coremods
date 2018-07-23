@@ -35,3 +35,8 @@ handlers:
 #libraries:
 #- name: jinja2
 #  version: latest
+libraries:
+- name: pycrypto
+  version: latest
+- name: ssl
+  version: latest
