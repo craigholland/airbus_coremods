@@ -1,0 +1,27 @@
+Metadata-Version: 1.1
+Name: pyramid
+Version: 1.5.1
+Summary: The Pyramid Web Framework, a Pylons project
+Home-page: http://docs.pylonsproject.org/en/latest/docs/pyramid.html
+Author: Chris McDonough, Agendaless Consulting
+Author-email: pylons-discuss@googlegroups.com
+License: BSD-derived (http://www.repoze.org/LICENSE.txt)
+Description: 
+        
+        
+Keywords: web wsgi pylons pyramid
+Platform: UNKNOWN
+Classifier: Intended Audience :: Developers
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2.6
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.2
+Classifier: Programming Language :: Python :: 3.3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Programming Language :: Python :: Implementation :: PyPy
+Classifier: Framework :: Pyramid
+Classifier: Topic :: Internet :: WWW/HTTP
+Classifier: Topic :: Internet :: WWW/HTTP :: WSGI
+Classifier: License :: Repoze Public License

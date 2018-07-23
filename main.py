@@ -3,11 +3,14 @@
 # Import the Pyramid Framework
 from pyramid.config import Configurator
 from pyramid.response import Response
-
+from dbquery import models
 
 def hello_world(request):
     """Return a friendly greeting."""
-    return Response('Hello World!')
+
+    test = models.User(first_name='Craig', last_name='Holland')
+    k=test.put()
+    return Response('Hello World!'+str(k))
 
 config = Configurator()
 config.add_route('root', '/')
