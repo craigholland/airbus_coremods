@@ -30,10 +30,10 @@ from google.appengine.api import datastore_errors
 from google.appengine.ext import ndb
 from google.appengine.ext.ndb import msgprop
 
-from google3.ops.netdeploy.netdesign.server.metadata import metadata_messages
-from google3.ops.netdeploy.netdesign.server.metadata import metadata_utils
-from google3.ops.netdeploy.netdesign.server.utils import request_state
-from google3.ops.netdeploy.netdesign.server.utils import signals
+from _base.metadata import metadata_messages
+from _base.metadata import metadata_utils
+from _base.utils import request_state
+from _base.utils import signals
 
 
 # Global mapping of metadata kinds to model classes.

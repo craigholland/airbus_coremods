@@ -7,13 +7,13 @@ import uuid
 
 from google.appengine.ext import ndb
 
-from google3.pyglib.function_utils import memoize
+from _base.utils import memoize
 
-from google3.ops.netdeploy.netdesign.server.errors import error_msg
-from google3.ops.netdeploy.netdesign.server.metadata import metadata_conversions
-from google3.ops.netdeploy.netdesign.server.metadata import metadata_messages
-from google3.ops.netdeploy.netdesign.server.utils import constants
-from google3.ops.netdeploy.netdesign.server.utils import yaml_utils
+from _base.errors import error_msg
+from _base.metadata import metadata_conversions
+from _base.metadata import metadata_messages
+from _base.utils import constants
+from _base.utils import yaml_utils
 
 _KIND_FILENAME_DICT = None
 

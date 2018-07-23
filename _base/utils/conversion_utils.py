@@ -7,7 +7,6 @@ import decimal
 import functools
 import re
 
-import google3
 import dateutil.parser
 
 from google.appengine.api import datastore_errors

@@ -10,7 +10,7 @@ from google.appengine.api import datastore_types
 from google.appengine.api import users
 from google.appengine.ext import ndb
 
-from google3.ops.netdeploy.netdesign.server.utils import conversion_utils
+from _base.utils import conversion_utils
 
 
 DEFAULT_SEPARATORS = (', ', ': ')

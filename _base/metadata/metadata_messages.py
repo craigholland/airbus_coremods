@@ -8,8 +8,8 @@ from protorpc import messages
 
 from google.appengine.ext import ndb
 
-from google3.ops.netdeploy.netdesign.server.permissions import permission_models
-from google3.ops.netdeploy.netdesign.server.utils import model_utils
+from _base.utils import permission_models
+from _base.utils import model_utils
 
 # Override the default package name exposed to clients.
 package = 'metadata'

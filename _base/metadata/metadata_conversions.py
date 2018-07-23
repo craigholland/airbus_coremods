@@ -1,10 +1,10 @@
 """Metadata utils for converting values to metadata types in Double Helix."""
 
 
-from google3.ops.netdeploy.netdesign.server.errors import error_msg
-from google3.ops.netdeploy.netdesign.server.metadata import metadata_messages
-from google3.ops.netdeploy.netdesign.server.utils import conversion_utils
-from google3.ops.netdeploy.netdesign.server.utils import json_utils
+from _base.errors import error_msg
+from _base.metadata import metadata_messages
+from _base.utils import conversion_utils
+from _base.utils import json_utils
 
 
 CONVERTERS = {

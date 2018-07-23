@@ -5,15 +5,15 @@ import threading
 
 from google.appengine.ext import ndb
 
-from google3.pyglib.function_utils import memoize
+from _base.utils import memoize
 
-from google3.ops.netdeploy.netdesign.server.metadata import metadata_conditional
-from google3.ops.netdeploy.netdesign.server.metadata import metadata_conversions
-from google3.ops.netdeploy.netdesign.server.metadata import metadata_messages
-from google3.ops.netdeploy.netdesign.server.metadata import metadata_models
-from google3.ops.netdeploy.netdesign.server.metadata import metadata_utils
-from google3.ops.netdeploy.netdesign.server.utils import constants
-from google3.ops.netdeploy.netdesign.server.utils import model_utils
+from _base.metadata import metadata_conditional
+from _base.metadata import metadata_conversions
+from _base.metadata import metadata_messages
+from _base.metadata import metadata_models
+from _base.metadata import metadata_utils
+from _base.utils import constants
+from _base.utils import model_utils
 
 # Kinds that represent virtual base classes and should not be instantiated.
 BASE_CLASS_KINDS = frozenset([
