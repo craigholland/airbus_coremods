@@ -1,5 +1,0 @@
-{
-  "template_name" : "Pyramid web framework",
-  "template_description" : "Skeleton app based on Pyramid framework (http://www.pylonsproject.org/)",
-  "open_files": ["main.py"]
-}
