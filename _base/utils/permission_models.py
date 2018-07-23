@@ -3,16 +3,15 @@
 Permissions are either kind wide or column wide.
 """
 
-import enum
+from protorpc.messages import Enum
 
 from google.appengine.ext import ndb
 
 from _base.utils import model_utils
 
 
-# TODO(rupalig): Update metadata to use the choices field for access type.
-@enum.unique
-class AccessType(enum.Enum):
+
+class AccessType(Enum):
   """Enum representing permission access types."""
   FIELD_READ_WRITE = 'field_read_write'
   FIELD_WRITE_ONLY = 'field_write_only'

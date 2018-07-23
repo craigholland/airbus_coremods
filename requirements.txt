@@ -7,3 +7,5 @@
 pyramid==1.5.1
 cachepy==0.1
 blinker==1.4
+endpoints>=1.1
+python-dateutil==1.11

@@ -14,9 +14,8 @@ from google.appengine.api import users
 from google.appengine.ext import ndb
 from google.net.proto import ProtocolBuffer
 
-from google3.pyglib import datelib
 
-from google3.ops.netdeploy.netdesign.server.utils import constants
+from _base.utils import constants
 
 
 _DEFAULT = object()  # sentinel object to detect default.
@@ -363,9 +362,7 @@ def ToDateTime(value, default=_DEFAULT):
     if isinstance(value, datetime.date):
       return datetime.datetime(value.year, value.month, value.day)
     elif isinstance(value, datetime.time):
-      return datelib.ReplaceTimezone(_EPOCH.replace(
-          hour=value.hour, minute=value.minute, second=value.second,
-          microsecond=value.microsecond), value.tzinfo)
+      return datetime.datetime.now()
     elif isinstance(value, (int, long)):
       return _EPOCH + datetime.timedelta(microseconds=value)
     elif not str(value):
