@@ -1,6 +1,7 @@
 from datetime import datetime as dt
 from google.appengine.api import memcache
 from google.appengine.ext import ndb
+from pyramid.response import Response
 
 from _base.common import common_models
 
@@ -37,3 +38,7 @@ class CartItems(common_models.BaseModel):
     ProductOptions__key_name = ndb.StringProperty()
     quantity = ndb.IntegerProperty(default=0)
     purchase_date = ndb.DateTimeProperty()
+
+def Build(request):
+
+    return Response('db'+str(request))

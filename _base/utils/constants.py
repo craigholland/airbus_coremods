@@ -1,9 +1,3 @@
-"""Constants used throughout the Double Helix system.
-
-WARNING: Do not import anything from google.appengine or that requires an
-appengine environment to be initialized.
-"""
-
 import collections
 import re
 import string
@@ -71,7 +65,7 @@ UNM_EXPORT_QUEUE_NAME = 'unm-export'
 UNM_UPDATE_QUEUE_NAME = 'unm-update'
 
 # The base application module. Used for relative imports.
-BASE_MODULE = 'google3.ops.netdeploy.netdesign.server'
+BASE_MODULE = '_base'
 
 # Constants for metadata.
 METADATA_BACKUP = 'backup'
@@ -79,65 +73,66 @@ METADATA_UPDATE_SEARCH = 'update_search'
 
 # A list of modules to search for Models (relative to BASE_MODULE). The order
 # of the modules is not maintained, and every Model should have a unique name.
-MODEL_MODULES = (
-    '.admin.admin_models',
-    '.bigquery.bigquery_models',
-    '.capacity.capacity_models',
-    '.bom.bom_item_models',
-    '.bom.bom_models',
-    '.btp.btp_models',
-    '.cables.cable_models',
-    '.circuits.circuit_models',
-    '.circuits.circuit_element_models',
-    '.circuits.subcircuits.sub_circuit_models',
-    '.common.common_models',
-    '.capacity.activities_models',
-    '.devices.device_models',
-    '.devices.logical_device_models',
-    '.devices.splice_models',
-    '.email.email_models',
-    '.fallout.fallout_models',
-    '.file_attachments.file_attachments_models',
-    '.hardware.hardware_models',
-    '.history.history_models',
-    '.importer.importer_models',
-    '.locations.building.building_models',
-    '.locations.floor.floor_models',
-    '.locations.inventory.inventory_location_models',
-    '.locations.osp_container.osp_container_models',
-    '.locations.space.space_models',
-    '.locations.subbuilding.subbuilding_models',
-    '.locations.location_models',
-    '.logical_locations.logical_location_models',
-    '.logs.logs_models',
-    '.manufacturers.manufacturer_models',
-    '.metadata.metadata_models',
-    '.mutex.mutex_models',
-    '.netcracker.netcracker_models',
-    '.on_network_inventory_mapping.on_network_inventory_mapping_models',
-    '.optical_span.optical_span_models',
-    '.orders.order_item_models',
-    '.orders.order_models',
-    '.parts.part_models',
-    '.paths.path_models',
-    '.permissions.permission_models',
-    '.ports.port_status_models',
-    '.ports.reservation_models',
-    '.racks.rack_models',
-    '.recon.device_recon_models',
-    '.sequences.sequence_models',
-    '.sockets.socket_models',
-    '.traffic.traffic_models',
-    '.user.user_preference_models',
-    '.vcs.vcs_refs',
-    '.vendors.vendor_models',
-    '.transport.physical_spof.physical_spof_models',
-    '.transport.submarine_oms_ots.submarine_oms_ots_models',
-    '.transport.thirdparty_transport.thirdparty_transport_models',
-    '.transport.transport_models',
-    '.circuits.act_path_tx_models',
-    '.netcracker.bazooka_models',
-    '.cron.cron_models',)
+MODEL_MODULES = ()
+# MODEL_MODULES = (
+#     '.admin.admin_models',
+#     '.bigquery.bigquery_models',
+#     '.capacity.capacity_models',
+#     '.bom.bom_item_models',
+#     '.bom.bom_models',
+#     '.btp.btp_models',
+#     '.cables.cable_models',
+#     '.circuits.circuit_models',
+#     '.circuits.circuit_element_models',
+#     '.circuits.subcircuits.sub_circuit_models',
+#     '.common.common_models',
+#     '.capacity.activities_models',
+#     '.devices.device_models',
+#     '.devices.logical_device_models',
+#     '.devices.splice_models',
+#     '.email.email_models',
+#     '.fallout.fallout_models',
+#     '.file_attachments.file_attachments_models',
+#     '.hardware.hardware_models',
+#     '.history.history_models',
+#     '.importer.importer_models',
+#     '.locations.building.building_models',
+#     '.locations.floor.floor_models',
+#     '.locations.inventory.inventory_location_models',
+#     '.locations.osp_container.osp_container_models',
+#     '.locations.space.space_models',
+#     '.locations.subbuilding.subbuilding_models',
+#     '.locations.location_models',
+#     '.logical_locations.logical_location_models',
+#     '.logs.logs_models',
+#     '.manufacturers.manufacturer_models',
+#     '.metadata.metadata_models',
+#     '.mutex.mutex_models',
+#     '.netcracker.netcracker_models',
+#     '.on_network_inventory_mapping.on_network_inventory_mapping_models',
+#     '.optical_span.optical_span_models',
+#     '.orders.order_item_models',
+#     '.orders.order_models',
+#     '.parts.part_models',
+#     '.paths.path_models',
+#     '.permissions.permission_models',
+#     '.ports.port_status_models',
+#     '.ports.reservation_models',
+#     '.racks.rack_models',
+#     '.recon.device_recon_models',
+#     '.sequences.sequence_models',
+#     '.sockets.socket_models',
+#     '.traffic.traffic_models',
+#     '.user.user_preference_models',
+#     '.vcs.vcs_refs',
+#     '.vendors.vendor_models',
+#     '.transport.physical_spof.physical_spof_models',
+#     '.transport.submarine_oms_ots.submarine_oms_ots_models',
+#     '.transport.thirdparty_transport.thirdparty_transport_models',
+#     '.transport.transport_models',
+#     '.circuits.act_path_tx_models',
+#     '.netcracker.bazooka_models',
+#     '.cron.cron_models',)
 
 # Groups.
 DH_ADMIN_GROUP = '%doublehelix-admin'

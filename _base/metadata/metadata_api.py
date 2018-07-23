@@ -171,7 +171,7 @@ def GetParentKeyField(obj):
     return None
 
 
-@memoize.Memoize(warn_on_error=False, timeout=600, cache_positions=[0])
+#@memoize.Memoize(warn_on_error=False, timeout=600, cache_positions=[0])
 def GetMetadataDefaultValuesCached(kind, metadata=None):
   """Returns the field default values for a metadata kind.
 
@@ -221,7 +221,7 @@ def ApplyMetadataDefaultValuesToEntity(metadata, entity):
         setattr(entity, field_name, coerced_defaults[field_name])
 
 
-@memoize.Memoize(warn_on_error=False, timeout=600, cache_positions=[0])
+#@memoize.Memoize(warn_on_error=False, timeout=600, cache_positions=[0])
 def GetIndexedFieldsCached(kind, metadata=None):
   """Returns the fields that are indexed for a metadata kind.
 
@@ -238,7 +238,7 @@ def GetIndexedFieldsCached(kind, metadata=None):
   return set()
 
 
-@memoize.Memoize(timeout=600, memoize_parallel_calls=True)
+#@memoize.Memoize(timeout=600, memoize_parallel_calls=True)
 def GetAlternateKeyConfigs(metadata_kind):
   """Retrieve the alternate key configurations from a given metadata model.
 
@@ -266,7 +266,7 @@ def GetAlternateKeyConfigs(metadata_kind):
   return alt_keys
 
 
-@memoize.Memoize(warn_on_error=False, timeout=600, cache_positions=[0])
+#@memoize.Memoize(warn_on_error=False, timeout=600, cache_positions=[0])
 def GetMetadataForeignKeyFieldsCached(kind, metadata=None):
   """Returns the fields identified as foreign key fields.
 

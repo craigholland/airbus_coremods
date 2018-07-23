@@ -112,7 +112,7 @@ def _ImportModels():
 _ImportModels.done = False
 
 
-@memoize.Memoize(warn_on_error=False, memoize_parallel_calls=True)
+#@memoize.Memoize(warn_on_error=False, memoize_parallel_calls=True)
 def GetManagedModels():
   """Returns the set of managed models.
 

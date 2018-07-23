@@ -3,7 +3,7 @@
 Permissions are either kind wide or column wide.
 """
 
-from protorpc.messages import Enum
+import enum
 
 from google.appengine.ext import ndb
 
@@ -11,7 +11,7 @@ from _base.utils import model_utils
 
 
 
-class AccessType(Enum):
+class AccessType(enum.Enum):
   """Enum representing permission access types."""
   FIELD_READ_WRITE = 'field_read_write'
   FIELD_WRITE_ONLY = 'field_write_only'

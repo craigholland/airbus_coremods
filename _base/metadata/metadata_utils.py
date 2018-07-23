@@ -481,7 +481,7 @@ def _GetPropertyAttrs(field):
   )
 
 
-@memoize.Memoize(warn_on_error=False)
+#@memoize.Memoize(warn_on_error=False)
 def _GetFieldPropertyCached(property_attrs):
   """Converts property attributes into an NDB Property instance."""
   # The "required" and "choices" attributes are always disabled to avoid NDB

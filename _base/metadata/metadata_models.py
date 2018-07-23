@@ -102,7 +102,7 @@ class MetadataMetaModel(ndb.MetaModel):
     metadata = rs.get(kind)
     if metadata is None:
       # Avoid circular import, pylint: disable=g-import-not-at-top
-      from google3.ops.netdeploy.netdesign.server.metadata import metadata_api
+      from _base.metadata import metadata_api
       # pylint: enable=g-import-not-at-top
       metadata = metadata_api.GetMetadata(kind)
       rs[kind] = metadata
