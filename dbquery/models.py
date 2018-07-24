@@ -10,12 +10,6 @@ from _base.common import common_models
 class Model(object):
     """All Models."""
 
-    def add(self, model):
-        if inspect.isclass(model) and issubclass(model, common_models.BaseModel):
-            self.__setattr__(model.__name__, model)
-            return model.__name__
-        else:
-            return 'Fail {0}'.format(model.__name__)
 
     def list_all_models(self):
         models = []
@@ -29,5 +23,7 @@ class Model(object):
                 return x
         return None
 
-
-AllModels = Model()
+def addToModel(model):
+    if inspect.isclass(model) and issubclass(model, common_models.BaseModel):
+        setattr(Model, model.__name__, model)
+    return str(dir(Model))
