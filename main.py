@@ -25,9 +25,9 @@ _routes = [
     ('root', '/', root_page)
 ]
 
-_HOST_NAME = socket.gethostname()
+
 db_main.build(API_models.API_Registry)
-start_key = API.Build(_HOST_NAME)
+start_key = API.Build()
 
 routes = db_routes + _routes
 for route in routes:
