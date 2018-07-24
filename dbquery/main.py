@@ -41,7 +41,6 @@ class CartItems(common_models.BaseModel):
 
 model=[Product, User, ProductOptions, Inventory, CartProfile, CartItems]
 def Build(request, mdl=model):
-    md = models.Model()
     results = []
     if isinstance(mdl, list) or isinstance(mdl, tuple):
         for m in mdl:
@@ -53,6 +52,16 @@ def Build(request, mdl=model):
     for r in results:
         res += '{0}<br>'.format(str(r))
     return Response(res)
+
+def build(mdl=model):
+    results = []
+    if isinstance(mdl, list) or isinstance(mdl, tuple):
+        for m in mdl:
+            results.append(models.addToModel(m))
+    else:
+        results.append(models.addToModel(mdl))
+
+    return results
 
 def List(request):
     md = models.Model()

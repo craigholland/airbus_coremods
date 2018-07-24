@@ -8,10 +8,3 @@ def Build(host_name):
         host_name=host_name,
         service_ip=IPaddr
     ).put()
-
-
-
-
-
-
-
