@@ -14,7 +14,7 @@ def _addService(service_name):
     md = models.RegisteredServices
     key = md.query(md.service_name == service_name).fetch(1)
     if key:
-        return key[0]
+        return key[0].key
     else:
         return md(service_name=service_name).put()
 
@@ -22,6 +22,12 @@ def _addService(service_name):
 def RegisterService(request):
     service = request.matchdict["mod"]
     return Response(str(_addService(service)))
+
+def getRegServicesList(request):
+    md = models.RegisteredServices
+    rs_list = [rs.key.service_name for rs in md.query().fetch(keys_only=True)]
+
+    return Response(str(rs_list))
 
 def Build(service_name):
     """Establish Service in Registry"""
@@ -44,7 +50,7 @@ def Listall(request):
         API = md.get_model_by_name('API_Registry')
         services = API.query(
             API.is_online == True).fetch(
-            projection=[API.host_name, API.service_name])
+            projection=[API.host_name, API.RegisteredServices__service_name])
         response = str(services)
     return Response(response)
 
@@ -56,7 +62,7 @@ def List(request):
         API = md.get_model_by_name('API_Registry')
         hosts = API.query(
             API.is_online == True,
-            API.service_name == service).fetch(
+            API.RegisteredServices__service_name == service).fetch(
             projection=[API.host_name])
         response = str(hosts)
     return Response(response)
