@@ -6,35 +6,26 @@ from pyramid.response import Response
 from dbquery import models
 from dbquery import main as db_main
 from dbquery.routes import routes as db_routes
-from API_registry import main as API
+from API_registry.main import Build
 from API_registry import models as API_models
 
 config = Configurator()
-#db_main.build(API_models.API_Registry)
-#start_key = API.Build()
+
 
 def root_page(request):
     """Return a friendly greeting."""
     md = models.Model()
-    User = md.get_model_by_name('User')
-    if User:
-        k = User(first_name='Raul', last_name='Gonzalez').put()
+    if md.get_model_by_name('API_Registry'):
+        result = 'API Registry ready...'
     else:
-        k = 'Fail'
+        result = 'API Registry failed to build'
 
-    API = md.get_model_by_name('API_Registry')
-    if API:
-        j = API(service_name='Fake', host_name='fake.site.com').put()
-    else:
-        j = 'Fail'
-    return Response('Front Page '+str(k) + str(j))
+    return Response('Core Modules Running: ' + result)
 
+# Get Routes from Modules
 _routes = [
     ('root', '/', root_page)
 ]
-
-
-
 
 routes = db_routes + _routes
 for route in routes:
@@ -43,3 +34,7 @@ for route in routes:
     config.add_view(handler, route_name=name)
 
 app = config.make_wsgi_app()
+
+# Create API Registry model and announce being online
+db_main.build(API_models.API_Registry)
+Build()
