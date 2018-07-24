@@ -41,31 +41,6 @@ class CartItems(common_models.BaseModel):
     quantity = ndb.IntegerProperty(default=0)
     purchase_date = ndb.DateTimeProperty()
 
-
-MODEL_DICT = {
-    'CartItems': CartItems,
-    'CartProfile': CartProfile,
-    'Inventory': Inventory,
-    'Product': Product,
-    'ProductOptions': ProductOptions,
-    'User': User,
-}
-
-def register_model(model):
-    """
-
-    >>> register_model(CartItems)
-    >>> MODEL_DICT.items()
-
-    :param model:
-    :return:
-    """
-    MODEL_DICT[model.__class__.name] = model
-
-
-
-properties = props(MyClass)
-
 model=[Product, User, ProductOptions, Inventory, CartProfile, CartItems]
 def Build(request, mdl=model):
     results = []
