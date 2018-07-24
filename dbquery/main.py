@@ -41,6 +41,8 @@ class CartItems(common_models.BaseModel):
     quantity = ndb.IntegerProperty(default=0)
     purchase_date = ndb.DateTimeProperty()
 
+properties = props(MyClass)
+
 model=[Product, User, ProductOptions, Inventory, CartProfile, CartItems]
 def Build(request, mdl=model):
     results = []
