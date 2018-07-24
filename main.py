@@ -6,6 +6,7 @@ from pyramid.response import Response
 from dbquery import models
 from dbquery import main as db_main
 from dbquery.routes import routes as db_routes
+from API_registry.routes import routes as api_routes
 from API_registry.main import Build
 from API_registry import models as API_models
 
@@ -34,7 +35,7 @@ _routes = [
     ('root', '/', root_page)
 ]
 
-routes = db_routes + _routes
+routes = db_routes + api_routes + _routes
 for route in routes:
     name, uri, handler = route
     config.add_route(name, uri)
