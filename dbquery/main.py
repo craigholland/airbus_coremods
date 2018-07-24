@@ -3,6 +3,8 @@ from google.appengine.ext import ndb
 from _base.common import common_models
 from dbquery import models
 from pyramid.response import Response
+from pyramid.view import view_config
+
 import inspect
 
 class Product(common_models.BaseModel):
@@ -64,3 +66,6 @@ def List(request):
     md = models.Model()
     return Response(str([y for y in dir(md) if not y.startswith('_')]))
 
+@view_config(route_name='model_exists')
+def ModelExist(request):
+    return Response(request.matchdict["id"])

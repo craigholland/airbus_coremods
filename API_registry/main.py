@@ -16,7 +16,8 @@ def Build():
     if API:
        API(service_name='CoreModules', host_name=host_name).put()
 
-def Listall():
+def Listall(request):
+    md = db_model.Model()
     response = 'failed'
     if _APIRegistry_isOnline:
         API = md.get_model_by_name('API_Registry')
