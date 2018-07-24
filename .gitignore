@@ -3,5 +3,5 @@
 !lib/README.md
 .DS_Store
 .ropeproject
-.idea
+.idea/
 venv
