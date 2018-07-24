@@ -10,6 +10,8 @@ from API_registry import main as API
 from API_registry import models as API_models
 
 config = Configurator()
+db_main.build(API_models.API_Registry)
+start_key = API.Build()
 
 def root_page(request):
     """Return a friendly greeting."""
@@ -19,15 +21,14 @@ def root_page(request):
         k = User(first_name='Raul', last_name='Gonzalez').put()
     else:
         k = 'Fail'
-    return Response('Front Page '+str(k))
+    return Response('Front Page '+start_key)
 
 _routes = [
     ('root', '/', root_page)
 ]
 
 
-db_main.build(API_models.API_Registry)
-start_key = API.Build()
+
 
 routes = db_routes + _routes
 for route in routes:
