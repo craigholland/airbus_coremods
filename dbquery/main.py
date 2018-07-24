@@ -3,7 +3,7 @@ from google.appengine.ext import ndb
 from _base.common import common_models
 from dbquery import models
 from pyramid.response import Response
-
+import inspect
 
 class Product(common_models.BaseModel):
     name = ndb.StringProperty()
@@ -40,19 +40,17 @@ class CartItems(common_models.BaseModel):
     purchase_date = ndb.DateTimeProperty()
 
 model=[Product, User, ProductOptions, Inventory, CartProfile, CartItems]
-def Build(model):
-    if isinstance(model, list) or isinstance(model, tuple):
-        for m in model:
-            Build(m)
-    elif isinstance(model, common_models.BaseModel):
-        models.Model.add(model)
+def Build(request, mdl=model):
+    results=[]
+    if isinstance(mdl, list) or isinstance(mdl, tuple):
+        for m in mdl:
+            results.append(models.AllModels.add(m))
+    else:
+        results.append(models.AllModels.add(mdl))
 
 
     return Response('added models')
 
 def List(request):
-    models = []
-    for x in [y for y in dir(models.AllModels) if not y.startswith('_')]:
-        if isinstance(x, common_models.BaseModel):
-            models.append[x]
-    return Response(str(models))
+
+    return Response(str(models.AllModels.list_all_models()))

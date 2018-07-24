@@ -9,7 +9,7 @@ from dbquery.routes import routes as db_routes
 def root_page(request):
     """Return a friendly greeting."""
 
-    test = models.User(first_name='Craig', last_name='Holland')
+    test = models.AllModels.User(first_name='Craig', last_name='Holland')
     k=test.put()
     return Response('Hello World!'+str(k))
 
