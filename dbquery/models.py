@@ -26,4 +26,4 @@ class Model(object):
 def addToModel(model):
     if inspect.isclass(model) and issubclass(model, common_models.BaseModel):
         setattr(Model, model.__name__, model)
-    return str(dir(Model))
+    return [y for y in dir(Model) if not y.startswith('_')]
