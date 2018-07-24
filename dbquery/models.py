@@ -13,8 +13,8 @@ class Model(object):
 
     def list_all_models(self):
         models = []
-        for x in [y for y in dir(self) if not y.startswith('_') and inspect.isclass(y)]:
-            models.append(x.__name__)
+        for x in [y for y in dir(self) if not y.startswith('_')]:
+            models.append(x)
         return models
 
     def get_model_by_name(self, name):

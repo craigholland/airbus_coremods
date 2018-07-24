@@ -9,5 +9,5 @@ class API_Registry(common_models.BaseModel):
     host_name = ndb.StringProperty()
     service_ip = ndb.StringProperty()
     record_created = ndb.DateTimeProperty(default=dt.now())
-    is_online = ndb.BooleanProperty(default=True)
+    is_online = ndb.BooleanProperty()
     offline_date = ndb.DateTimeProperty()

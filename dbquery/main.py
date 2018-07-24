@@ -53,7 +53,7 @@ def Build(request, mdl=model):
         res += '{0}<br>'.format(str(r))
     return Response(res)
 
-def build(mdl=model):
+def build(mdl):
     results = []
     if isinstance(mdl, list) or isinstance(mdl, tuple):
         for m in mdl:
