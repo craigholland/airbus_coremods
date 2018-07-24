@@ -8,10 +8,13 @@ from dbquery.routes import routes as db_routes
 
 def root_page(request):
     """Return a friendly greeting."""
-
-    test = models.AllModels.User(first_name='Craig', last_name='Holland')
-    k=test.put()
-    return Response('Hello World!'+str(k))
+    md = models.Model()
+    User = md.get_model_by_name('User')
+    if User:
+        k = User(first_name='Raul', last_name='Gonzalez').put()
+    else:
+        k = 'Fail'
+    return Response('Hello World! '+str(k))
 
 
 config = Configurator()

@@ -18,9 +18,9 @@ class Model(object):
         return models
 
     def get_model_by_name(self, name):
-        for x in [y for y in dir(self) if not y.startswith('_') and inspect.isclass(y)]:
-            if x.__name__ == name:
-                return x
+        for y in dir(self):
+            if y == name:
+                return getattr(self, y)
         return None
 
 def addToModel(model):

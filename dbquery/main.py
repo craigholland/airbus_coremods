@@ -56,4 +56,4 @@ def Build(request, mdl=model):
 
 def List(request):
     md = models.Model()
-    return Response(str(md.list_all_models()))
+    return Response(str(dir(md)))
