@@ -22,6 +22,12 @@ def root_page(request):
 
     return Response('Core Modules Running: ' + result)
 
+
+# Create API Registry model and announce being online
+db_main.build(API_models.API_Registry)
+if models.Model().get_model_by_name('API_Registry'):
+    Build()
+
 # Get Routes from Modules
 _routes = [
     ('root', '/', root_page)
@@ -33,8 +39,5 @@ for route in routes:
     config.add_route(name, uri)
     config.add_view(handler, route_name=name)
 
+# Start it up
 app = config.make_wsgi_app()
-
-# Create API Registry model and announce being online
-db_main.build(API_models.API_Registry)
-Build()

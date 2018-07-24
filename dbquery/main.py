@@ -54,14 +54,11 @@ def Build(request, mdl=model):
     return Response(res)
 
 def build(mdl):
-    results = []
     if isinstance(mdl, list) or isinstance(mdl, tuple):
         for m in mdl:
-            results.append(models.addToModel(m))
+            models.addToModel(m)
     else:
-        results.append(models.addToModel(mdl))
-
-    return results
+        models.addToModel(mdl)
 
 def List(request):
     md = models.Model()
