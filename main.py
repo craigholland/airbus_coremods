@@ -13,14 +13,21 @@ config = Configurator()
 
 
 def root_page(request):
-    """Return a friendly greeting."""
+    """Start it up."""
+    # Create API Registry model and announce being online.
     md = models.Model()
+    if not md.get_model_by_name('API_Registry'):
+        db_main.build(API_models.API_Registry)
+        Build()
+
+
     if md.get_model_by_name('API_Registry'):
         result = 'API Registry ready...'
     else:
         result = 'API Registry failed to build'
 
     return Response('Core Modules Running: ' + result)
+
 
 # Get Routes from Modules
 _routes = [
@@ -33,8 +40,5 @@ for route in routes:
     config.add_route(name, uri)
     config.add_view(handler, route_name=name)
 
+# Start it up
 app = config.make_wsgi_app()
-
-# Create API Registry model and announce being online
-db_main.build(API_models.API_Registry)
-Build()
