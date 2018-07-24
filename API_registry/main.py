@@ -9,18 +9,38 @@ md = db_model.Model()
 def _APIRegistry_isOnline():
     return md.get_model_by_name('API_Registry') is not None
 
+def _addService(service_name):
+    """Checks to see if service exists. Adds if unique."""
+    md = models.RegisteredServices
+    key = md.query(md.service_name == service_name).fetch(1)
+    if key:
+        return key[0]
+    else:
+        return md(service_name=service_name).put()
 
-def Build():
+@view_config(route_name='apireg_regsrv')
+def RegisterService(request):
+    service = request.matchdict["mod"]
+    return Response(str(_addService(service)))
+
+def Build(service_name):
+    """Establish Service in Registry"""
+
+    srvc_entity = _addService(service_name).get()
     host_name = socket.gethostname()
+    if host_name.find('//'):
+        host_name = host_name[host_name.find('//')+2:]
 
     API = md.get_model_by_name('API_Registry')
     if API:
-       API(service_name='CoreModules', host_name=host_name).put()
+       API(RegisteredServices__key_name=srvc_entity.key_name,
+           RegisteredServices__service_name=srvc_entity.service_name,
+           host_name=host_name, is_online=True).put()
 
 def Listall(request):
     md = db_model.Model()
     response = 'failed'
-    if _APIRegistry_isOnline:
+    if _APIRegistry_isOnline():
         API = md.get_model_by_name('API_Registry')
         services = API.query(
             API.is_online == True).fetch(
@@ -46,14 +66,18 @@ def List(request):
 def HostOffline(request):
     hostname = request.matchdict["mod"]
     response = 'None'
+    host_results = []
     if hostname and _APIRegistry_isOnline():
         API = md.get_model_by_name('API_Registry')
         hosts = API.query(
-            keys_only=True).filter(
+            ).filter(
             API.is_online == True,
-            API.host_name == hostname).fetch()
+            API.host_name == hostname
+            ).fetch(keys_only=True)
         for key in hosts:
-            key.is_online=False
-            key.put()
+            ent = key.get()
+            ent.is_online=False
+            host_results.append(ent.put())
+    return Response(str(host_results))
 
 

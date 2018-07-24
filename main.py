@@ -1,4 +1,4 @@
-"""`main` is the top level module for your Pyramid application."""
+"""`main` is the top level module of the Airbus Shopping - CoreModules application."""
 import socket
 # Import the Pyramid Framework
 from pyramid.config import Configurator
@@ -18,8 +18,9 @@ def root_page(request):
     # Create API Registry model and announce being online.
     md = models.Model()
     if not md.get_model_by_name('API_Registry'):
+        db_main.build(API_models.RegisteredServices)
         db_main.build(API_models.API_Registry)
-        Build()
+        Build('CoreModules')
 
 
     if md.get_model_by_name('API_Registry'):
