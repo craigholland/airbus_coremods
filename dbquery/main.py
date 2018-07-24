@@ -70,4 +70,6 @@ def List(request):
 
 @view_config(route_name='model_exists')
 def ModelExist(request):
-    return Response(request.matchdict["id"])
+    md = models.Model()
+    res = str(md.get_model_by_name(request.matchdict["mod"]) is not None)
+    return Response(res)
