@@ -1,7 +1,7 @@
+import json
 
 from _base.common import common_models
 
-import json
 
 def props(cls):
     return [i for i in cls.__dict__.keys() if i[:1] != '_']
@@ -36,9 +36,10 @@ def dict_to_model(model_dict):
     properties = model_dict.get('properties')
     for prop in properties.keys():
         prop_type = properties[prop]['type']
-        setattr(a_model, prop, __import__(prop_type)
+        setattr(a_model, prop, __import__(prop_type))
 
     return a_model
+
 
 def json_to_model(model_json):
     model_dict = json.loads(model_json)
