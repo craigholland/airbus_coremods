@@ -56,5 +56,5 @@ def Build(request, mdl=model):
 
 def List(request):
     md = models.Model()
-    return Response([y for y in dir(md) if not y.startswith('_')])
+    return Response(str([y for y in dir(md) if not y.startswith('_')]))
 
